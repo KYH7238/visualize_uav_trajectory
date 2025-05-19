@@ -132,14 +132,15 @@ sample_interval_entry = Entry(root)
 sample_interval_entry.pack()
 sample_interval_entry.insert(0, "10")
 
-Label(root, text="차이 임계값").pack()
-diff_threshold_entry = Entry(root)
+Label(root, text="차이 임계값").pack() # 첫번째 배경 프레임의 픽셀차이를 계산해서 얼마 이상 차이나면 움직인 것으로 간주할 것인가
+diff_threshold_entry = Entry(root) # 값 낮으면 미세한 움직임까지 감지, 값 높으면 큰 움직임만 감지
 diff_threshold_entry.pack()
-diff_threshold_entry.insert(0, "30")
+diff_threshold_entry.insert(0, "30") 
 
-Label(root, text="팽창 커널 크기").pack()
-kernel_size_entry = Entry(root)
-kernel_size_entry.pack()
+
+Label(root, text="팽창 커널 크기").pack() # 노이즈처럼 분리된 점들을 묶어서 하나의 덩어리로 확장 Morphological Dilation라 생각
+kernel_size_entry = Entry(root) # 값이 작으면 궤적이 얇게, 뚝뚝 끊겨 보임
+kernel_size_entry.pack() # 값이 크면 궤적이 두껍고 선명하지만 너무 커지면 부정확해질 수 있음
 kernel_size_entry.insert(0, "15")
 
 Label(root, text="시작 시간 (초)").pack()
